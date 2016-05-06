@@ -9,18 +9,37 @@
 
 <body>
 
-<h1>Hello World</h1>
+<h1>Edward Anderson</h1>
+<h2>Work Experience</h2>
 <div id="mapid"></div>
 
 <script>
-var mymap = L.map('mapid').setView([44.9537, -93.0900], 13);
+var mymap = L.map('mapid').setView([23.9574,-90.1071], 4);
 
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+//var jobs = L.layerGroup([dnr, hennepin, dogware, dogcalhoun, nng, pc, reo]);
+
+L.tileLayer('https://api.mapbox.com/styles/v1/emande14/cin3znd6p00e8abnqnkdrc7aw/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZW1hbmRlMTQiLCJhIjoiM3pjYXRxNCJ9.rrDLlZxSn5ivm_VqPwf0uw', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
     id: 'emande14.fe985a38',
     accessToken: 'pk.eyJ1IjoiZW1hbmRlMTQiLCJhIjoiM3pjYXRxNCJ9.rrDLlZxSn5ivm_VqPwf0uw'
 }).addTo(mymap);
+
+var dnr = L.marker([44.956203, -93.084030]).addTo(mymap);
+dnr.bindPopup("<b>MN DNR</b><br>February 2016 to present").openPopup();
+var hennepin = L.marker([44.975853, -93.267044]).addTo(mymap);
+hennepin.bindPopup("<b>Hennepin County</b><br>February 2016-present").openPopup();
+var dogware = L.marker([45.000205, -93.245022]).addTo(mymap);
+dogware.bindPopup("<b>Dogwood Coffee</b><br>November 2011-February 2016").openPopup();
+var dogcalhoun = L.marker([44.947360, -93.298077]).addTo(mymap);
+dogcalhoun.bindPopup("<b>Dogwood Coffee</b><br>September 2009-November 2011").openPopup();
+var nng = L.marker([41.248247, -96.072522]).addTo(mymap);
+nng.bindPopup("<b>Northern Natural Gas</b><br>December 2006-March 2008").openPopup();
+var pc = L.marker([0.022502, -78.894677]).addTo(mymap);
+pc.bindPopup("<b>US Peace Corps</b><br>February 2004-April 2006").openPopup();
+var reo = L.marker([44.979656, -93.235073]).addTo(mymap);
+reo.bindPopup("<b>U of M Real Estate Office</b><br>October 2002-January 2004").openPopup();
+
 </script>
 
 </body>
