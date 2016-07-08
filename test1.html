@@ -22,6 +22,26 @@ var map = new mapboxgl.Map({
     center: [-90, 23.9574], // starting position
     zoom: 3 // starting zoom
 });
+
+map.on('load', function () {
+    map.addSource('workpts', {
+        type: 'geojson',
+        data: 'js/points.geojson'
+    });
+    map.addLayer({
+        id: 'work',
+        type: 'fill',
+        source: 'workpts',
+        //'source-layer': 'RPD_Parks',
+        layout: {
+            visibility: 'visible'
+        },
+        paint: {
+            'fill-color': 'rgba(61,153,80,0.55)'
+        }
+    });
+});
+
 </script>
 
 </body>
