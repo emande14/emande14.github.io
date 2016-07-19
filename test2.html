@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Edward Anderson</title>
+    <link type="text/css" href="css/style.css" rel="stylesheet"/>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+  <h1>Edward Anderson</h1>
+  <h2>Work Experience</h2>
+
+<div id='mapid'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiZW1hbmRlMTQiLCJhIjoiM3pjYXRxNCJ9.rrDLlZxSn5ivm_VqPwf0uw';
+var map = new mapboxgl.Map({
+    container: 'mapid', // container id
+    style: 'mapbox://styles/emande14/cin3znd6p00e8abnqnkdrc7aw', //stylesheet location
+    center: [-90, 23.9574], // starting position
+    zoom: 3 // starting zoom
+});
+
+map.on('load', function () {
+    map.addSource('points', {
+        type: 'geojson',
+        data: 'http://emande14.github.io/js/points.geojson'
+    });
+    map.addLayer({
+        id: 'work',
+        type: 'symbol',
+        source: 'points',
+        //'source-layer': 'RPD_Parks',
+        layout: {
+            "icon-image": "marker-15",
+            "icon-size": 1.8,
+            "icon-allow-overlap": true
+        },
+    });
+});
+
+map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {layers: ['work'] });
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  var popup = new mapboxgl.Popup()
+      .setLngLat(feature.geometry.coordinates)
+      .setHTML(feature.properties.employer)
+      .addTo(map);
+});
+
+map.on('mousemove', function (e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['work'] });
+    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+});
+//test
+</script>
+
+</body>
+</html>

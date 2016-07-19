@@ -9,20 +9,37 @@
 
 <body>
 
+
 <h1>Edward Anderson</h1>
 <h2>Work Experience</h2>
-<div id="mapid"></div>
+<div id='mapid'></div>
 
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoiZW1hbmRlMTQiLCJhIjoiM3pjYXRxNCJ9.rrDLlZxSn5ivm_VqPwf0uw';
+
+//var mapCluster = L.mapbox.map('mapid', 'emande14.fe985a38')
+//	.setView([23.9574,-90.1071], 4);
+
+//L.mapbox.featureLayer()
+//	.loadURL('js/points.geojson')
+//	.on('ready', function(e) {
+//		var clusterGroup = new L.MarkerClusterGroup();
+//		e.target.eachLayer(function(layer) {
+//			clusterGroup.addLayer(layer);
+//		});
+//		mapCluster.addLayer(clusterGroup);
+
+//		});
+
+
 var mymap = L.mapbox.map('mapid', 'emande14.fe985a38')
 //	.setView([23.9574,-90.1071], 4);
 
 var mylayer = L.mapbox.featureLayer()
 	.loadURL('js/points.geojson')
 	.on('ready', function() {
-		mymap.fitBounds(mylayer.getBounds(), {
-			padding:[50, 50]
+			mymap.fitBounds(mylayer.getBounds(), {
+				padding:[50, 50]
 			});
 		})
 	.addTo(mymap);
