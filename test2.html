@@ -31,16 +31,26 @@ map.on('load', function () {
         type: 'geojson',
         data: 'http://emande14.github.io/js/points.geojson'
     });
+    // map.addLayer({
+    //     id: 'work',
+    //     type: 'symbol',
+    //     source: 'points',
+    //     //'source-layer': 'RPD_Parks',
+    //     layout: {
+    //         "icon-image": "marker-15",
+    //         "icon-size": 1.8,
+    //         "icon-allow-overlap": true
+    //     },
+    // });
     map.addLayer({
-        id: 'work',
-        type: 'symbol',
-        source: 'points',
-        //'source-layer': 'RPD_Parks',
-        layout: {
-            "icon-image": "marker-15",
-            "icon-size": 1.8,
-            "icon-allow-overlap": true
-        },
+      'id': 'work',
+      'source': 'points',
+      'type': 'circle',
+      'paint': {
+        'circle-radius': 10,
+        'circle-color': '#007cbf',
+        'circle-blur': 1
+      }
     });
 });
 
