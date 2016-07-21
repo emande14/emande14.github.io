@@ -31,6 +31,7 @@ map.on('load', function () {
         type: 'geojson',
         data: 'http://emande14.github.io/js/points.geojson'
     });
+    // the commented-out below parts are kept as reference
     // map.addLayer({
     //     id: 'work',
     //     type: 'symbol',
@@ -64,7 +65,7 @@ map.on('click', function(e) {
 
   var popup = new mapboxgl.Popup()
       .setLngLat(feature.geometry.coordinates)
-      .setHTML(feature.properties.employer)
+      .setHTML(feature.properties.description)
       .addTo(map);
 });
 
