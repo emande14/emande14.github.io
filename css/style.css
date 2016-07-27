@@ -13,6 +13,18 @@ h2 {
 	color: black
 }
 
+a:link, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
 #mapid {
 	width: 100%;
 	height: 800px;
